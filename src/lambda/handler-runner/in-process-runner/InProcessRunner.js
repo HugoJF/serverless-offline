@@ -79,7 +79,9 @@ export default class InProcessRunner {
 
   // no-op
   // () => void
-  cleanup() {}
+  cleanup() {
+    clearModule(this.#handlerPath, { cleanup: true })
+  }
 
   async run(event, context) {
     // check if the handler module path exists
